@@ -1,0 +1,1032 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(135deg,#0d3b4c,#116466,#1f7a8c);
+    color:#fff;
+    overflow:hidden;
+}
+
+header{
+    flex:0 0 60px;
+}
+
+main{
+    flex:1;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:15px;
+    min-height:0;
+}
+
+nav{
+    flex:0 0 70px;
+    display:flex;
+    background:#15202b;
+}
+
+main{
+    flex:1;
+    overflow:auto;
+    padding:15px;
+}
+
+.pagina{
+    display:none;
+    height:100%;
+    animation:fade .25s;
+}
+
+.pagina.ativa{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.card{
+    width:100%;
+    margin:15px 0;
+    background:#1f2937;
+    border-radius:18px;
+    padding:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+nav{
+    height:70px;
+    display:flex;
+    background:#15202b;
+    border:none;
+    box-shadow:none;
+}
+
+.menu{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:transparent;
+    color:#cfcfcf;
+    border:none;
+    outline:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.menu:focus,
+.menu:active{
+    outline:none;
+    box-shadow:none;
+}
+
+.menu.ativo{
+    background:#243447;
+    color:#19d3c5;
+    border-radius:18px;
+}
+
+.menu span:first-child,
+.menu i{
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+button{
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+input,
+select{
+    width:100%;
+    padding:12px;
+    margin:8px 0 12px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+}
+
+.jogador{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#243447;
+    border-radius:15px;
+    padding:15px;
+    margin-top:12px;
+}
+
+.infoJogador{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.nomeJogador{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.detalhes{
+    color:#b8c7d1;
+    font-size:14px;
+}
+
+.acoes{
+    display:flex;
+    gap:8px;
+}
+
+.btnIcone{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+}
+
+.editar{
+    background:#2196F3;
+    color:#fff;
+}
+
+.excluir{
+    background:#e53935;
+    color:#fff;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.6);
+    z-index:999;
+}
+
+.modal.ativo{
+    display:flex;
+}
+
+.modalBox{
+    width:90%;
+    max-width:380px;
+    background:#243447;
+    border-radius:20px;
+    padding:20px;
+}
+
+.botoesModal{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+#salvarJogador{
+    flex:1;
+    background:#18c964;
+    color:#fff;
+}
+
+#cancelarEditar{
+    flex:1;
+    background:#ef4444;
+    color:#fff;
+}
+
+.animando{
+    animation:piscar .12s infinite;
+}
+
+@keyframes piscar{
+    50%{
+        opacity:.3;
+    }
+}
+
+.placarHorizontal{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+}
+
+.time{
+    text-align:center;
+    width:100%;
+}
+
+.numero{
+    font-size:70px;
+    font-weight:bold;
+    border:3px solid #fff;
+    border-radius:20px;
+    padding:25px;
+    margin-top:10px;
+    user-select:none;
+}
+
+.numero:active{
+    transform:scale(.95);
+}
+
+.xplacar{
+    font-size:40px;
+    font-weight:bold;
+}
+
+#desfazerPonto{
+    width:100%;
+    margin-top:20px;
+}
+
+@media (orientation: landscape){
+
+    main{
+        padding:8px;
+    }
+
+    .card{
+        width:96%;
+        margin:8px auto;
+        padding:12px;
+    }
+
+    h2{
+        font-size:28px;
+    }
+
+    input,
+    select{
+        padding:8px;
+        margin:5px 0 8px;
+        font-size:14px;
+    }
+
+    button{
+        padding:8px 14px;
+        font-size:14px;
+    }
+
+    .jogador{
+        padding:10px;
+    }
+
+    .nomeJogador{
+        font-size:16px;
+    }
+
+    .detalhes{
+        font-size:12px;
+    }
+}
+        
+html,
+body,
+main,
+.pagina{
+    overflow-x:hidden !important;
+}
+
+*{
+    max-width:100%;
+}
+
+/* ===== Layout para celular deitado ===== */
+@media (orientation: landscape){
+
+    #jogadores .card:first-child{
+        width:100%;
+        margin:0;
+        position:sticky;
+        top:0;
+    }
+
+    #jogadores .card:not(:first-child){
+        width:100%;
+        margin:0;
+    }
+
+    input,
+    select{
+        padding:8px;
+        font-size:14px;
+    }
+
+    button{
+        padding:8px 12px;
+        font-size:14px;
+    }
+
+    .jogador{
+        padding:10px;
+    }
+
+    .nomeJogador{
+        font-size:16px;
+    }
+
+    .detalhes{
+        font-size:13px;
+    }
+}
+
+/* ===========================
+   MODO HORIZONTAL
+=========================== */
+@media (orientation: landscape){
+
+html,body{
+    overflow:hidden;
+}
+
+header{
+    height:50px;
+}
+
+nav{
+    height:60px;
+}
+
+main{
+    flex:1;
+    padding:8px;
+    overflow:hidden;
+}
+
+.pagina.ativa{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    overflow:hidden;
+}
+
+/* Todos os cartões ocupam o espaço disponível */
+.card{
+    flex:1;
+    margin:4px;
+    padding:10px;
+    overflow:auto;
+}
+
+/* Jogadores */
+.pagina.ativa#jogadores{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:10px;
+    height:100%;
+}
+
+.pagina.ativa#sorteio{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:12px;
+    height:100%;
+}
+
+.pagina.ativa#sorteio .card:first-child{
+    margin:0;
+    width:100%;
+}
+
+.pagina.ativa#sorteio .card:not(:first-child){
+    margin:0;
+}
+
+.pagina.ativa#sorteio .card:nth-child(2),
+.pagina.ativa#sorteio .card:nth-child(3){
+    display:inline-block;
+    width:49%;
+    vertical-align:top;
+}
+
+.pagina.ativa#sorteio .card:nth-child(4){
+    width:100%;
+    margin-top:12px;
+}
+
+#timeAzul,
+#timeVermelho,
+#filaEspera{
+    max-height:180px;
+    overflow-y:auto;
+    font-size:14px;
+}
+
+/* Ranking */
+.pagina.ativa#ranking{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    height:100%;
+}
+
+/* Placar */
+.pagina.ativa#placar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.numero{
+    font-size:110px;
+}
+
+.xplacar{
+    font-size:60px;
+}
+
+input,
+select,
+button{
+    padding:8px;
+    font-size:14px;
+}
+
+.nomeJogador{
+    font-size:15px;
+}
+
+.detalhes{
+    font-size:12px;
+}
+
+}
+
+/* ---------- GERAL ---------- */
+
+.card{
+    padding:14px;
+}
+
+input,
+select{
+    padding:10px;
+}
+
+button{
+    padding:10px 14px;
+}
+
+.jogador{
+    padding:10px;
+}
+
+.nomeJogador{
+    font-size:16px;
+}
+
+.detalhes{
+    font-size:13px;
+}
+
+/* Barra superior do sorteio */
+
+.topoConfig{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    background:transparent !important;
+}
+
+.menuConfig{
+    width:42px;
+    height:42px;
+
+    margin-left:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:30px;
+    color:#fff;
+
+    background:none;
+    border:none;
+}
+
+.btnConfig{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#243447;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* Layout horizontal */
+
+.areaTimes{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px;
+    height:100%;
+}
+
+.areaTimes .card{
+    margin:0;
+    height:100%;
+}
+
+@media(max-width:900px){
+
+    .areaTimes{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.cardConfig{
+    padding:10px;
+    background:transparent !important;
+    box-shadow:none !important;
+}
+
+/* ===========================
+   MULTI-ESPORTES
+=========================== */
+
+/* O placar rola quando o conteúdo é maior que a tela (inclusive deitado) */
+.pagina.ativa#placar{
+    display:block;
+    overflow-y:auto !important;
+}
+
+.seletorEsporte{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:2px 0 10px;
+}
+
+.chip{
+    flex:0 0 auto;
+    background:#243447;
+    color:#cfcfcf;
+    border-radius:999px;
+    padding:10px 16px;
+    white-space:nowrap;
+}
+
+.chip.ativo{
+    background:#19d3c5;
+    color:#0d1b24;
+    font-weight:bold;
+}
+
+.quadro{
+    background:#1f2937;
+    border-radius:18px;
+    padding:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+.quadroTopo{
+    text-align:center;
+}
+
+.periodo{
+    font-size:16px;
+    font-weight:bold;
+    color:#b8c7d1;
+}
+
+.relogio{
+    font-size:64px;
+    font-weight:bold;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:2px;
+    margin:4px 0 8px;
+}
+
+.relogio.parado{
+    opacity:.7;
+}
+
+.relogio.estourou{
+    color:#ff6b6b;
+}
+
+.ctrlRelogio{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.ctrlRelogio button,
+.acoesPartida button{
+    background:#243447;
+    color:#fff;
+}
+
+#tpPlay{
+    background:#18c964;
+    color:#fff;
+    min-width:130px;
+}
+
+#tpPlay.rodando{
+    background:#f59e0b;
+    color:#1a1a1a;
+}
+
+.quadroTimes{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:14px;
+}
+
+.timeBox{
+    background:#243447;
+    border-radius:16px;
+    padding:12px 8px;
+    text-align:center;
+}
+
+.timeBox.azul{ border-top:5px solid #3b82f6; }
+.timeBox.vermelho{ border-top:5px solid #ef4444; }
+
+.timeBox h3{
+    font-size:16px;
+}
+
+.gols{
+    font-size:64px;
+    font-weight:bold;
+    line-height:1.1;
+    margin:6px 0 8px;
+}
+
+.botoesPonto{
+    display:flex;
+    gap:6px;
+}
+
+.botoesPonto button{
+    flex:1;
+    background:#19d3c5;
+    color:#0d1b24;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.linhaExtra{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    margin-top:12px;
+    font-size:14px;
+    color:#b8c7d1;
+}
+
+.controles{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.controles b{
+    min-width:26px;
+    font-size:22px;
+    color:#fff;
+}
+
+.controles button{
+    width:38px;
+    height:38px;
+    padding:0;
+    background:#15202b;
+    color:#fff;
+    font-size:20px;
+}
+
+.bonus{
+    display:inline-block;
+    background:#f59e0b;
+    color:#000;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:bold;
+    padding:2px 6px;
+    margin-left:4px;
+}
+
+.acoesPartida{
+    display:flex;
+    gap:8px;
+    margin-top:14px;
+}
+
+.acoesPartida button{
+    flex:1;
+}
+
+/* Celular deitado: Azul | relógio | Vermelho */
+@media (orientation: landscape){
+
+    .quadro{
+        display:grid;
+        grid-template-columns:1fr auto 1fr;
+        gap:10px;
+        align-items:start;
+    }
+
+    .quadroTimes{
+        display:contents;
+    }
+
+    .quadroTopo{
+        grid-column:2;
+        grid-row:1;
+        min-width:230px;
+    }
+
+    .timeBox.azul{
+        grid-column:1;
+        grid-row:1;
+    }
+
+    .timeBox.vermelho{
+        grid-column:3;
+        grid-row:1;
+    }
+
+    .acoesPartida{
+        grid-column:1 / -1;
+        grid-row:2;
+        margin-top:0;
+    }
+
+    .relogio{
+        font-size:54px;
+    }
+
+    .gols{
+        font-size:52px;
+    }
+}
+
+/* Config do vôlei dentro do quadro */
+.vlConfig{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    margin-top:6px;
+}
+
+.vlConfig select,
+.vlConfig input{
+    margin:0;
+    text-align:center;
+    background:#243447;
+    color:#fff;
+}
+
+/* ===========================
+   PLACARES CENTRALIZADOS
+=========================== */
+
+/* Seletor de esportes: centralizado, quebra de linha em vez de cortar */
+.seletorEsporte{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+    overflow:visible;
+    padding:2px 0 12px;
+}
+
+.chip{
+    padding:9px 14px;
+    font-size:14px;
+}
+
+/* Quadro centralizado e sem estourar a largura */
+.quadro{
+    width:100%;
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.quadroTimes{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+}
+
+.timeBox{
+    min-width:0;
+    overflow:hidden;
+}
+
+.botoesPonto{
+    justify-content:center;
+}
+
+.botoesPonto button{
+    min-width:0;
+    padding:10px 0;
+}
+
+.linhaExtra,
+.controles{
+    justify-content:center;
+}
+
+.controles{
+    gap:8px;
+}
+
+.acoesPartida{
+    justify-content:center;
+}
+
+.acoesPartida button{
+    min-width:0;
+}
+
+/* Celular deitado: Azul | relógio | Vermelho, centralizado */
+@media (orientation: landscape){
+
+    .quadro{
+        grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+        max-width:900px;
+        padding:10px;
+    }
+
+    .quadroTopo{
+        min-width:200px;
+    }
+
+    .timeBox{
+        padding:8px 6px;
+    }
+
+    .relogio{
+        font-size:46px;
+    }
+
+    .gols{
+        font-size:44px;
+        margin:2px 0 6px;
+    }
+
+    .linhaExtra{
+        margin-top:6px;
+    }
+}
+
+
+/* ===========================
+   CONEXÃO ENTRE CELULARES
+=========================== */
+
+.acoesPartida{
+    flex-wrap:wrap;
+}
+
+#syncTela{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.75);
+    padding:12px;
+}
+
+.syncCaixa{
+    width:100%;
+    max-width:460px;
+    max-height:92vh;
+    overflow-y:auto;
+    background:#1f2937;
+    color:#fff;
+    border-radius:18px;
+    padding:16px;
+    text-align:center;
+}
+
+.syncCaixa h3{
+    margin:0 0 8px;
+}
+
+.syncDica{
+    font-size:13px;
+    opacity:.85;
+    margin:8px 0 4px;
+    text-align:left;
+}
+
+.syncStatus{
+    margin:8px 0 12px;
+    font-weight:bold;
+}
+
+.syncEscolha,
+.syncLinha{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:8px;
+}
+
+.syncEscolha button,
+.syncLinha button{
+    flex:1;
+    min-width:130px;
+}
+
+.syncCaixa textarea{
+    width:100%;
+    box-sizing:border-box;
+    font-size:11px;
+    font-family:monospace;
+    word-break:break-all;
+    background:#111827;
+    color:#fff;
+    border:1px solid #374151;
+    border-radius:10px;
+    padding:8px;
+}
+
+
+/* QR Code e câmera */
+.syncQr{
+    display:none;
+    width:100%;
+    max-width:320px;
+    height:auto;
+    margin:8px auto;
+    background:#fff;
+    border-radius:12px;
+    image-rendering:pixelated;
+}
+
+.syncTexto{
+    margin-top:12px;
+    text-align:left;
+}
+
+.syncTexto summary{
+    cursor:pointer;
+    font-size:13px;
+    opacity:.85;
+    padding:6px 0;
+}
+
+#syncCam{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    padding:12px;
+    color:#fff;
+    text-align:center;
+}
+
+#syncCam video{
+    width:100%;
+    max-width:480px;
+    max-height:65vh;
+    object-fit:cover;
+    border-radius:14px;
+}
